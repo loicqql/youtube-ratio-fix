@@ -1,0 +1,48 @@
+{
+   "browser_action": {
+      "default_popup": "pop.html"
+   },
+   "content_scripts": [
+      {
+         "all_frames": true,
+         "exclude_matches": [
+            "*://*.youtube.com/*.html",
+            "*://*.youtube.com/*.html?*",
+            "*://*.youtube.com/*.htm",
+            "*://*.youtube.com/*.htm?*"
+         ],
+         "js": [
+            "run.js"
+         ],
+         "css": [
+            "style.css"
+         ],
+         "matches": [
+            "*://*.youtube.com/*"
+         ]
+      }
+   ],
+   "background": {
+      "scripts": [
+         "functions.js",
+         "background.js"
+      ],
+      "persistent": true
+   },
+   "description": "Youtube ratio fix",
+   "externally_connectable": {
+      "matches": [
+         "*://*.youtube.com/*"
+      ]
+   },
+   "icons": {
+      "128": "icon.png"
+   },
+   "manifest_version": 2,
+   "name": "YoutubeRatioFix",
+   "permissions": [
+      "*://*.youtube.com/*",
+      "storage"
+   ],
+   "version": "1.0.0"
+}
