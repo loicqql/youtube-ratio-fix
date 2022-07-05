@@ -4,18 +4,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
   document.querySelector('.checkbox-activate').addEventListener('change', (e) => {
-    sendMessage('ytbFixSettingsActivate', e.target.checked ? "activate" : "disable");    
+    sendMessage('ytbFixSettingsActivate', e.target.checked ? "activate" : "disable");
+    setData({
+      'activate': e.target.checked,
+      'mode': 0
+    });    
   })
 
   function init(e) {
-    sendMessage('ytbFixSettingsActivate', e.isActivate ? "activate" : "disable");
+    sendMessage('ytbFixSettingsActivate', e.activate ? "activate" : "disable");
+    document.querySelector('.checkbox-activate').checked = e.activate;
     sendMessage('ytbFixSettingsMode', e.mode);
-  }
-
-  function sendMessage(name, value) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {[name]: value});
-    });
   }
 
 });
