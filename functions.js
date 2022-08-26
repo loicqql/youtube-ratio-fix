@@ -5,7 +5,7 @@ function getData(callback) {
     if (!e.hasOwnProperty(KEY)) {
       chrome.storage.local.set({
         [KEY]: {
-          'activate': true,
+          'activate': false,
           'mode': 0
         }
       }, () => {

@@ -7,7 +7,6 @@
 
   chrome.runtime.onMessage.addListener(
     function (request) {
-      console.log(request);
       if(request.ytbFixSettingsActivate) {
         switch (request.ytbFixSettingsActivate) {
           case "activate":
